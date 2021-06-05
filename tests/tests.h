@@ -16,4 +16,9 @@ void test_str_cat1();
 void test_str_cat2();
 void test_str_cat3();
 
+void test_str_len1();
+void test_str_len2();
+void test_str_len3();
+
+
 #endif //IMPLEMENTING_LIBC_TESTS_TESTS_H_

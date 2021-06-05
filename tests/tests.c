@@ -17,6 +17,10 @@ void tests() {
   test_str_cat1();
   test_str_cat2();
   test_str_cat3();
+
+  test_str_len1();
+  test_str_len2();
+  test_str_len3();
 }
 
 void test_memcpy() {
@@ -105,4 +109,25 @@ void test_str_cat3() {
 
   char *result = str_cat(dest, src);
   assert(str_cmp(result, "")==0);
+}
+
+void test_str_len1() {
+  printf("test_str_len1()\n");
+
+  char src[1] = "";
+  assert(str_len(src)==0);
+}
+
+void test_str_len2() {
+  printf("test_str_len2()\n");
+
+  char src[1] = " ";
+  assert(str_len(src)==1);
+}
+
+void test_str_len3() {
+  printf("test_str_len3()\n");
+
+  char src[14] = "This is source";
+  assert(str_len(src)==14);
 }

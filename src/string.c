@@ -41,3 +41,11 @@ char *str_cat(char *dest, const char *src) {
 
   return origin;
 }
+
+size_t str_len(char *str) {
+  char *original = str;
+  while (*str!='\0')
+    ++str;
+
+  return (str - original);
+}
