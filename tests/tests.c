@@ -9,6 +9,10 @@
 void tests() {
   test_memcpy();
   test_memset();
+
+  test_strcmp1();
+  test_strcmp2();
+  test_strcmp3();
 }
 
 void test_memcpy() {
@@ -27,6 +31,8 @@ void test_memcpy() {
 }
 
 void test_memset() {
+  printf("test_memset()\n");
+
   const size_t count = 16;
   char buf[16] = "12345678";
 
@@ -36,4 +42,34 @@ void test_memset() {
   for (size_t i = 0; i < count; i++) {
     assert(buf[i]=='1');
   }
+}
+
+void test_strcmp1() {
+  printf("test_strcmp1()\n");
+
+  char string1[] = "The quick brown dog jumps over the lazy fox";
+  char string2[] = "The QUICK brown dog jumps over the lazy fox";
+
+  int result = str_cmp(string1, string2);
+  assert(result > 0);
+}
+
+void test_strcmp2() {
+  printf("test_strcmp2()\n");
+
+  char string1[] = "The Quick brown dog jumps over the lazy fox";
+  char string2[] = "The qUICK brown dog jumps over the lazy fox";
+
+  int result = str_cmp(string1, string2);
+  assert(result < 0);
+}
+
+void test_strcmp3() {
+  printf("test_strcmp3()\n");
+
+  char string1[] = "The Quick brown dog jumps over the lazy fox";
+  char string2[] = "The Quick brown dog jumps over the lazy fox";
+
+  int result = str_cmp(string1, string2);
+  assert(result==0);
 }

@@ -4,6 +4,6 @@
 extern void tests();
 
 int main() {
-    tests();
-    return 0;
+  tests();
+  return 0;
 }

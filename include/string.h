@@ -28,4 +28,6 @@ void* str_memcpy(void* dest, const void* src, size_t n);
 
 void* str_memset(void *buf, char z, size_t);
 
+int str_cmp(const char* str1, const char* str2);
+
 #endif //IMPLEMENTING_LIBC_STRING_H

@@ -18,3 +18,14 @@ void *str_memset(void *buf, char z, size_t bytes) {
   }
   return buf;
 }
+
+int str_cmp(const char *str1, const char *str2) {
+  while (1) {
+    if (*str1!=*str2)
+      return (*str1 - *str2);
+    if (*str1=='\0')
+      return 0;
+    ++str1;
+    ++str2;
+  }
+}
