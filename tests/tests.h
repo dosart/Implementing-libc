@@ -20,5 +20,9 @@ void test_str_len1();
 void test_str_len2();
 void test_str_len3();
 
+void test_str_cpy1();
+void test_str_cpy2();
+void test_str_cpy3();
+
 
 #endif //IMPLEMENTING_LIBC_TESTS_TESTS_H_

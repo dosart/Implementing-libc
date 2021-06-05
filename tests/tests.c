@@ -21,6 +21,10 @@ void tests() {
   test_str_len1();
   test_str_len2();
   test_str_len3();
+
+  test_str_cpy1();
+  test_str_cpy2();
+  test_str_cpy3();
 }
 
 void test_memcpy() {
@@ -130,4 +134,32 @@ void test_str_len3() {
 
   char src[14] = "This is source";
   assert(str_len(src)==14);
+}
+
+void test_str_cpy1() {
+  printf("test_str_len1()\n");
+
+  char src[20] = "This is source";
+  char dest[20] = "";
+
+  char *result = str_cpy(dest, src);
+  assert(str_cmp(result, "This is source")==0);
+}
+void test_str_cpy2() {
+  printf("test_str_len2()\n");
+
+  char src[20] = "This is source";
+  char dest[20] = "This is destination";
+
+  char *result = str_cpy(dest, src);
+  assert(str_cmp(result, "This is source")==0);
+}
+void test_str_cpy3() {
+  printf("test_str_len3()\n");
+
+  char src[20] = "This is source";
+  char dest[20] = " ";
+
+  char *result = str_cpy(dest, src);
+  assert(str_cmp(result, "This is source")==0);
 }

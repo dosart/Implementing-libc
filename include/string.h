@@ -32,5 +32,7 @@ int str_cmp(const char *str1, const char *str2);
 
 char *str_cat(char *destptr, const char *srcptr);
 
-size_t str_len(char *str);
+size_t str_len(const char *str);
+
+char* str_cpy(char* dest, const char* src);
 #endif //IMPLEMENTING_LIBC_STRING_H

@@ -1,8 +1,8 @@
 #include "string.h"
 
 void *str_memcpy(void *dest, const void *src, size_t n) {
-  char *tmp_dest = (char *) dest;
-  char *tmp_src = (char *) src;
+  register char *tmp_dest = (char *) dest;
+  register char *tmp_src = (char *) src;
 
   for (size_t i = 0; i < n; ++i) {
     tmp_dest[i] = tmp_src[i];
@@ -11,7 +11,7 @@ void *str_memcpy(void *dest, const void *src, size_t n) {
 }
 
 void *str_memset(void *buf, char z, size_t bytes) {
-  char *tmp_buf = buf;
+  register char *tmp_buf = buf;
   while (bytes) {
     *tmp_buf++ = z;
     --bytes;
@@ -31,7 +31,7 @@ int str_cmp(const char *str1, const char *str2) {
 }
 
 char *str_cat(char *dest, const char *src) {
-  char *origin = dest;
+  register char *origin = dest;
 
   while (*dest!='\0')
     ++dest;
@@ -42,10 +42,16 @@ char *str_cat(char *dest, const char *src) {
   return origin;
 }
 
-size_t str_len(char *str) {
-  char *original = str;
+size_t str_len(const char *str) {
+  register const char *original = str;
   while (*str!='\0')
     ++str;
 
   return (str - original);
+}
+
+char* str_cpy(char* dest, const char* src){
+  register char* original = dest;
+  while ((*dest++ = *src++));
+  return original;
 }
