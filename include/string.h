@@ -26,4 +26,6 @@ This file contains functions implementation from libs (string.h)
  */
 void* str_memcpy(void* dest, const void* src, size_t n);
 
+void* str_memset(void *buf, char z, size_t);
+
 #endif //IMPLEMENTING_LIBC_STRING_H

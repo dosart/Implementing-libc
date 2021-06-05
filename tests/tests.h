@@ -6,7 +6,8 @@
 #define IMPLEMENTING_LIBC_TESTS_TESTS_H_
 
 
-void test_memcpy1();
+void test_memcpy();
+void test_memset();
 
 
 #endif //IMPLEMENTING_LIBC_TESTS_TESTS_H_

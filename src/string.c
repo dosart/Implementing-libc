@@ -9,3 +9,12 @@ void *str_memcpy(void *dest, const void *src, size_t n) {
   }
   return dest;
 }
+
+void *str_memset(void *buf, char z, size_t bytes) {
+  char *tmp_buf = buf;
+  while (bytes) {
+    *tmp_buf++ = z;
+    --bytes;
+  }
+  return buf;
+}
