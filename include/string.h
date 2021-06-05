@@ -30,4 +30,5 @@ void* str_memset(void *buf, char z, size_t);
 
 int str_cmp(const char* str1, const char* str2);
 
+char *str_cat(char *destptr, const char *srcptr);
 #endif //IMPLEMENTING_LIBC_STRING_H

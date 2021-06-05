@@ -29,3 +29,15 @@ int str_cmp(const char *str1, const char *str2) {
     ++str2;
   }
 }
+
+char *str_cat(char *dest, const char *src) {
+  char *origin = dest;
+
+  while (*dest!='\0')
+    ++dest;
+  while (*src!='\0')
+    *dest++ = *src++;
+  *dest = '\0';
+
+  return origin;
+}

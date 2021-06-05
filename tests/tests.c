@@ -13,6 +13,10 @@ void tests() {
   test_strcmp1();
   test_strcmp2();
   test_strcmp3();
+
+  test_str_cat1();
+  test_str_cat2();
+  test_str_cat3();
 }
 
 void test_memcpy() {
@@ -72,4 +76,33 @@ void test_strcmp3() {
 
   int result = str_cmp(string1, string2);
   assert(result==0);
+}
+
+void test_str_cat1() {
+  printf("test_str_cat1()\n");
+
+  char src[50] = "This is source";
+  char dest[50] = "This is destination";
+
+  char *result = str_cat(dest, src);
+  assert(str_cmp(result, "This is destinationThis is source")==0);
+}
+void test_str_cat2() {
+  printf("test_str_cat2()\n");
+
+  char src[20] = "This is source";
+  char dest[1] = "";
+
+  char *result = str_cat(dest, src);
+  assert(str_cmp(result, "This is source")==0);
+}
+
+void test_str_cat3() {
+  printf("test_str_cat3()\n");
+
+  char src[1] = "";
+  char dest[2] = "";
+
+  char *result = str_cat(dest, src);
+  assert(str_cmp(result, "")==0);
 }

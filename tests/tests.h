@@ -12,4 +12,8 @@ void test_strcmp1();
 void test_strcmp2();
 void test_strcmp3();
 
+void test_str_cat1();
+void test_str_cat2();
+void test_str_cat3();
+
 #endif //IMPLEMENTING_LIBC_TESTS_TESTS_H_
