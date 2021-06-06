@@ -24,5 +24,9 @@ void test_str_cpy1();
 void test_str_cpy2();
 void test_str_cpy3();
 
+void test_str_cpyn1();
+void test_str_cpyn2();
+void test_str_cpyn3();
+
 
 #endif //IMPLEMENTING_LIBC_TESTS_TESTS_H_

@@ -50,8 +50,18 @@ size_t str_len(const char *str) {
   return (str - original);
 }
 
-char* str_cpy(char* dest, const char* src){
-  register char* original = dest;
+char *str_cpy(char *dest, const char *src) {
+  register char *original = dest;
   while ((*dest++ = *src++));
+  return original;
+}
+
+char *str_cpyn(char *dest, const char *src, size_t n) {
+  register char *original = dest;
+  size_t i = 0;
+  while (*src!='\0' && i < n) {
+    *dest++ = *src++;
+    ++i;
+  }
   return original;
 }

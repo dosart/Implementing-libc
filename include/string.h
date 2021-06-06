@@ -35,4 +35,6 @@ char *str_cat(char *destptr, const char *srcptr);
 size_t str_len(const char *str);
 
 char* str_cpy(char* dest, const char* src);
+
+char* str_cpyn(char* dest, const char* src, size_t n);
 #endif //IMPLEMENTING_LIBC_STRING_H

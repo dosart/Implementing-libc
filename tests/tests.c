@@ -25,6 +25,10 @@ void tests() {
   test_str_cpy1();
   test_str_cpy2();
   test_str_cpy3();
+
+  test_str_cpyn1();
+  test_str_cpyn2();
+  test_str_cpyn3();
 }
 
 void test_memcpy() {
@@ -95,6 +99,7 @@ void test_str_cat1() {
   char *result = str_cat(dest, src);
   assert(str_cmp(result, "This is destinationThis is source")==0);
 }
+
 void test_str_cat2() {
   printf("test_str_cat2()\n");
 
@@ -145,6 +150,7 @@ void test_str_cpy1() {
   char *result = str_cpy(dest, src);
   assert(str_cmp(result, "This is source")==0);
 }
+
 void test_str_cpy2() {
   printf("test_str_len2()\n");
 
@@ -154,6 +160,7 @@ void test_str_cpy2() {
   char *result = str_cpy(dest, src);
   assert(str_cmp(result, "This is source")==0);
 }
+
 void test_str_cpy3() {
   printf("test_str_len3()\n");
 
@@ -162,4 +169,33 @@ void test_str_cpy3() {
 
   char *result = str_cpy(dest, src);
   assert(str_cmp(result, "This is source")==0);
+}
+
+void test_str_cpyn1() {
+  printf("test_str_cpyn1()\n");
+
+  char src[20] = "This is source";
+  char dest[20] = "";
+
+  char *result = str_cpyn(dest, src, 14);
+  assert(str_cmp(result, "This is source")==0);
+}
+void test_str_cpyn2() {
+  printf("test_str_cpyn2()\n");
+
+  char src[20] = "This is source";
+  char dest[20] = " ";
+
+  char *result = str_cpyn(dest, src, 14);
+  assert(str_cmp(result, "This is source")==0);
+
+}
+void test_str_cpyn3(){
+  printf("test_str_cpyn3()\n");
+
+  char src[20] = "This is source";
+  char dest[20] = "This is destination";
+
+  char *result = str_cpyn(dest, src, 14);
+  assert(str_cmp(result, "This is sourceation")==0);
 }
