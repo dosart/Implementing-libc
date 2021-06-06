@@ -2,7 +2,7 @@
 
 void *str_memcpy(void *dest, const void *src, size_t n) {
   register char *tmp_dest = (char *) dest;
-  register char *tmp_src = (char *) src;
+  register const char *tmp_src = (const char *) src;
 
   for (size_t i = 0; i < n; ++i) {
     tmp_dest[i] = tmp_src[i];
@@ -43,11 +43,12 @@ char *str_cat(char *dest, const char *src) {
 }
 
 size_t str_len(const char *str) {
-  register const char *original = str;
-  while (*str!='\0')
+  size_t i = 0;
+  while (*str!='\0') {
     ++str;
-
-  return (str - original);
+    ++i;
+  }
+  return i;
 }
 
 char *str_cpy(char *dest, const char *src) {
