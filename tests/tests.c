@@ -29,6 +29,12 @@ void tests() {
   test_str_cpyn1();
   test_str_cpyn2();
   test_str_cpyn3();
+
+  test_str_ch1();
+  test_str_ch2();
+  test_str_ch3();
+  test_str_ch4();
+  test_str_ch5();
 }
 
 void test_memcpy() {
@@ -190,7 +196,7 @@ void test_str_cpyn2() {
   assert(str_cmp(result, "This is source")==0);
 
 }
-void test_str_cpyn3(){
+void test_str_cpyn3() {
   printf("test_str_cpyn3()\n");
 
   char src[20] = "This is source";
@@ -198,4 +204,39 @@ void test_str_cpyn3(){
 
   char *result = str_cpyn(dest, src, 14);
   assert(str_cmp(result, "This is sourceation")==0);
+}
+
+void test_str_ch1() {
+  printf("test_str_ch1()\n");
+
+  char *result = str_ch("This is sourceation", 'T');
+  assert(*result=='T');
+}
+
+void test_str_ch2() {
+  printf("test_str_ch2()\n");
+
+  char *result = str_ch("This is sourceation", 'n');
+  assert(*result=='n');
+}
+
+void test_str_ch3() {
+  printf("test_str_ch3()\n");
+
+  char *result = str_ch("This is sourceation", ' ');
+  assert(*result==' ');
+}
+
+void test_str_ch4() {
+  printf("test_str_ch4()\n");
+
+  char *result = str_ch("This is sourceation", '\0');
+  assert(*result=='\0');
+}
+
+void test_str_ch5() {
+  printf("test_str_ch4()\n");
+
+  char *result = str_ch("This is sourceation", 'L');
+  assert(result==NULL);
 }

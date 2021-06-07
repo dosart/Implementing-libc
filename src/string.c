@@ -66,3 +66,10 @@ char *str_cpyn(char *dest, const char *src, size_t n) {
   }
   return original;
 }
+
+char *str_ch(char *str, char c) {
+  size_t i = 0;
+  while (str[i] && str[i]!=c)
+    ++i;
+  return c==str[i] ? (char *) str + i : NULL;
+}

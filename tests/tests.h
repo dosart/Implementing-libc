@@ -28,5 +28,10 @@ void test_str_cpyn1();
 void test_str_cpyn2();
 void test_str_cpyn3();
 
+void test_str_ch1();
+void test_str_ch2();
+void test_str_ch3();
+void test_str_ch4();
+void test_str_ch5();
 
 #endif //IMPLEMENTING_LIBC_TESTS_TESTS_H_
