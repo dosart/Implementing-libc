@@ -35,6 +35,9 @@ void tests() {
   test_str_ch3();
   test_str_ch4();
   test_str_ch5();
+
+  test_str_spn1();
+  test_str_spn2();
 }
 
 void test_memcpy() {
@@ -239,4 +242,17 @@ void test_str_ch5() {
 
   char *result = str_ch("This is sourceation", 'L');
   assert(result==NULL);
+}
+
+void test_str_spn1() {
+  printf("test_str_spn1()\n");
+
+  size_t result = str_spn("12345678", "123");
+  assert(result==3);
+}
+void test_str_spn2() {
+  printf("test_str_spn2()\n");
+
+  size_t result = str_spn("12345678", "LKO");
+  assert(result==0);
 }
