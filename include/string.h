@@ -40,5 +40,8 @@ char *str_cpyn(char *dest, const char *src, size_t n);
 
 size_t str_spn(const char *str, char *accept);
 
+size_t str_cspn(const char *str, char *accept);
+
 char *str_ch(char *str, char c);
+
 #endif //IMPLEMENTING_LIBC_STRING_H

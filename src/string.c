@@ -75,11 +75,19 @@ size_t str_spn(const char *str, char *accept) {
   return count;
 }
 
+size_t str_cspn(const char *str, char *accept) {
+  size_t count = 0;
+  while (*str) {
+    if (str_ch(accept, *str++))
+      return count;
+    ++count;
+  }
+  return count;
+}
+
 char *str_ch(char *str, char c) {
   size_t i = 0;
   while (str[i] && str[i]!=c)
     ++i;
   return c==str[i] ? (char *) str + i : NULL;
 }
-
-

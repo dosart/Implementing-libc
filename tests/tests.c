@@ -38,6 +38,10 @@ void tests() {
 
   test_str_spn1();
   test_str_spn2();
+  test_str_spn3();
+
+  test_str_cspn1();
+  test_str_cspn2();
 }
 
 void test_memcpy() {
@@ -250,9 +254,31 @@ void test_str_spn1() {
   size_t result = str_spn("12345678", "123");
   assert(result==3);
 }
+
 void test_str_spn2() {
   printf("test_str_spn2()\n");
 
   size_t result = str_spn("12345678", "LKO");
   assert(result==0);
+}
+
+void test_str_spn3() {
+  printf("test_str_spn3()\n");
+
+  size_t result = str_spn("11345678", "123");
+  assert(result==3);
+}
+
+void test_str_cspn1() {
+  printf("test_str_cspn1()\n");
+
+  size_t result = str_cspn("12345678", "LKO");
+  assert(result==8);
+}
+
+void test_str_cspn2() {
+  printf("test_str_cspn2()\n");
+
+  size_t result = str_cspn("1234Lkt", "LKO");
+  assert(result==4);
 }

@@ -36,5 +36,9 @@ void test_str_ch5();
 
 void test_str_spn1();
 void test_str_spn2();
+void test_str_spn3();
+
+void test_str_cspn1();
+void test_str_cspn2();
 
 #endif //IMPLEMENTING_LIBC_TESTS_TESTS_H_
