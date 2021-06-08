@@ -1,15 +1,20 @@
+###################################################################################################
+##
+##      Information about the project
+##
+###################################################################################################
+
+
 cmake_minimum_required(VERSION 3.19)
-project(simole_std_lib VERSION 0.1 LANGUAGES C)
+project(implementing_libc VERSION 0.1 LANGUAGES C)
 
-include_directories(include)
-
-set(CMAKE_C_STANDARD 11)
 
 ###################################################################################################
 ##
 ##      Compilation options
 ##
 ###################################################################################################
+
 add_compile_options(
         -Werror
 
@@ -25,4 +30,22 @@ add_compile_options(
         -Wredundant-decls
         -Wsign-conversion
 )
-add_executable(Implementing_libc main.c include/string.h src/string.c tests/tests.c tests/tests.h)
+
+
+###################################################################################################
+##
+##      Project options
+##
+###################################################################################################
+
+
+include_directories(include)
+set(SOURCES
+    main.c
+    src/string.c
+    tests/tests.c)
+set(HEADERS
+    src/weather_api.h
+    src/bot.h
+    src/language_support.h)
+add_executable(implementing_libc ${SOURCES} ${HEADERS})
