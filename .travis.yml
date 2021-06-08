@@ -1,0 +1,12 @@
+language: c
+
+addons:
+  apt:
+    packages:
+      - cmake
+      - doxygen
+
+script:
+  mkdir build
+  cd build
+  cmake ..
