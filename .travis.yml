@@ -7,6 +7,5 @@ addons:
       - doxygen
 
 script:
-  mkdir build
   cd build
   cmake ..
