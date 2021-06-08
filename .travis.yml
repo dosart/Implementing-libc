@@ -7,6 +7,10 @@ addons:
       - doxygen
 
 script:
+<<<<<<< HEAD
   mkdir build;
   cd build;
   cmake .. ;
+=======
+  cmake .
+>>>>>>> e1e8e884153d8dd79256c0c54ca5da09ba049a13
