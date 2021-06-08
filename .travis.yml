@@ -1,6 +1,6 @@
 language: c
 
-bionic-job-template: &bionic-job
+.bionic-job-template: &bionic-job
   os: linux
   dist: bionic
   script:
