@@ -1,5 +1,6 @@
 /*!
 @file
+@defgroup string
 @brief  Header file for string
 This file contains functions implementation from libs (string.h)
 */
@@ -42,11 +43,11 @@ void *str_memset(void *buf, char ch, size_t count);
  * @param str1 Null-terminated string to compare.
  * @param str2 Null-terminated string to compare.
  *
- * @return The return value for each of these functions indicates the ordinal relation of str1, str2.
+ * @return {The return value for each of these functions indicates the ordinal relation of str1, str2.
  * 
  * < 0 str1 is less than str2
  *   0 str1 is identical to str2
- * > 0 str1 is greater than str2
+ * > 0 str1 is greater than str2}
  */
 int str_cmp(const char *str1, const char *str2);
 

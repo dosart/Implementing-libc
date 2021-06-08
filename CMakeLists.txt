@@ -41,7 +41,6 @@ set(SOURCES
     src/string.c
     tests/tests.c)
 set(HEADERS
-    src/weather_api.h
-    src/bot.h
-    src/language_support.h)
+    include/string.h
+    tests/tests.h)
 add_executable(implementing_libc ${SOURCES} ${HEADERS})
