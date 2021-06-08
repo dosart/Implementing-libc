@@ -1,9 +1,6 @@
+dist: bionic
 language: c
-
-.bionic-job-template: &bionic-job
-  os: linux
-  dist: bionic
-  script:
-    mkdir build;
-    cd build;
-    cmake .. ;
+script:
+  - mkdir build
+  - cd build
+  - cmake ..
