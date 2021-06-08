@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "tests/tests.h"
+#include "tests.h"
 
 extern void tests();
 

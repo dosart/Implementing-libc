@@ -35,9 +35,9 @@ add_compile_options(
 ##
 ###################################################################################################
 
-include_directories(include)
+include_directories(include tests)
 set(SOURCES
-    main.c
+    src/main.c
     src/string.c
     tests/tests.c)
 set(HEADERS
