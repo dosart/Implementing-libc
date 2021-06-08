@@ -1,12 +1,9 @@
 language: c
 
-addons:
-  apt:
-    packages:
-      - cmake
-      - doxygen
-
-script:
-  mkdir build;
-  cd build;
-  cmake .. ;
+bionic-job-template: &bionic-job
+  os: linux
+  dist: bionic
+  script:
+    mkdir build;
+    cd build;
+    cmake .. ;
