@@ -39,8 +39,11 @@ include_directories(include tests)
 set(SOURCES
     src/main.c
     src/string.c
-    tests/tests.c)
+    tests/tests.c src/malloc.c)
 set(HEADERS
     include/string.h
-    tests/tests.h)
+    tests/tests.h include/malloc.h)
 add_executable(implementing_libc ${SOURCES} ${HEADERS})
+
+include (CTest)
+add_test(valgrind_test implementing_libc)

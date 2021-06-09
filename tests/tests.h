@@ -5,6 +5,13 @@
 #ifndef IMPLEMENTING_LIBC_TESTS_TESTS_H_
 #define IMPLEMENTING_LIBC_TESTS_TESTS_H_
 
+#include "string.h"
+#include "memory.h"
+#include "malloc.h"
+
+#include <assert.h>
+#include <stdio.h>
+
 void test_memcpy();
 void test_memset();
 
@@ -40,5 +47,8 @@ void test_str_spn3();
 
 void test_str_cspn1();
 void test_str_cspn2();
+
+void test_free();
+void test_malloc();
 
 #endif //IMPLEMENTING_LIBC_TESTS_TESTS_H_

@@ -1,10 +1,7 @@
 
 
 #include "tests.h"
-#include "string.h"
 
-#include <assert.h>
-#include <stdio.h>
 
 void tests() {
   test_memcpy();
@@ -42,6 +39,9 @@ void tests() {
 
   test_str_cspn1();
   test_str_cspn2();
+
+  test_free();
+  test_malloc();
 }
 
 void test_memcpy() {
@@ -281,4 +281,23 @@ void test_str_cspn2() {
 
   size_t result = str_cspn("1234Lkt", "LKO");
   assert(result==4);
+}
+
+void test_free() {
+  printf("test_free()\n");
+
+  int *p1 = (int*)simple_malloc(10*sizeof *p1);
+  simple_free(p1);
+}
+
+void test_malloc() {
+  printf("test_malloc()\n");
+
+  int *p1 = simple_malloc(4*sizeof(int));  // allocates enough for an array of 4 int
+  int *p2 = simple_malloc(sizeof(int[4])); // same, naming the type directly
+  int *p3 = simple_malloc(4*sizeof *p3);   // same, without repeating the type name
+
+  simple_free(p1);
+  simple_free(p2);
+  simple_free(p3);
 }
