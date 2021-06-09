@@ -1,1 +1,0 @@
-/usr/bin/cc    CMakeFiles/implementing_libc.dir/main.c.o CMakeFiles/implementing_libc.dir/src/string.c.o CMakeFiles/implementing_libc.dir/tests/tests.c.o  -o implementing_libc 

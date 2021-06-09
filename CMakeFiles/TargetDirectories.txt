@@ -1,3 +1,0 @@
-/home/dosart/Programing_Language/C++/Implementing-libc/CMakeFiles/rebuild_cache.dir
-/home/dosart/Programing_Language/C++/Implementing-libc/CMakeFiles/edit_cache.dir
-/home/dosart/Programing_Language/C++/Implementing-libc/CMakeFiles/implementing_libc.dir
