@@ -25,41 +25,44 @@ void *simple_malloc(unsigned long size) {
   if (!is_init)
     init_memory_manager();
 
-  size = size + sizeof(mcb);
+  if (size) {
+    size = size + sizeof(mcb);
 
-  void *result_memory_block = NULL;
-  void *current_memory_block = first;
-  mcb *current_mcb = NULL;
+    void *result_memory_block = NULL;
+    void *current_memory_block = first;
+    mcb *current_mcb = NULL;
 
-  while (current_memory_block!=last) {
-    current_mcb = (mcb *) current_memory_block;
+    while (current_memory_block!=last) {
+      current_mcb = (mcb *) current_memory_block;
 
-    /// if block is free and size is good -> get current block
-    if (current_mcb->is_available) {
-      if (current_mcb->size >= size) {
-        current_mcb->is_available = 0;
-        result_memory_block = current_memory_block;
-        break;
+      /// if block is free and size is good -> get current block
+      if (current_mcb->is_available) {
+        if (current_mcb->size >= size) {
+          current_mcb->is_available = 0;
+          result_memory_block = current_memory_block;
+          break;
+        }
       }
+      current_memory_block = (char *) current_memory_block + current_mcb->size;
     }
-    current_memory_block = (char *) current_memory_block + current_mcb->size;
+    ///allocate first or no available memory
+    if (!result_memory_block) {
+      ///get memory from os
+      sbrk((intptr_t) size);
+
+      result_memory_block = last;
+
+      last = (char *) last + size;
+
+      current_mcb = result_memory_block;
+      current_mcb->is_available = 0;
+      current_mcb->size = size;
+
+      result_memory_block = (char *) result_memory_block + sizeof(mcb);
+    }
+    return result_memory_block;
   }
-  ///allocate first or no available memory
-  if (!result_memory_block) {
-    ///get memory from os
-    sbrk((intptr_t) size);
-
-    result_memory_block = last;
-
-    last = (char *) last + size;
-
-    current_mcb = result_memory_block;
-    current_mcb->is_available = 0;
-    current_mcb->size = size;
-
-    result_memory_block = (char *) result_memory_block + sizeof(mcb);
-  }
-  return result_memory_block;
+  return NULL;
 }
 
 static void init_memory_manager() {
