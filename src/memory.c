@@ -21,6 +21,16 @@ void *simple_calloc(unsigned long num, unsigned long size) {
   return result;
 }
 
+void *simple_realoc(void *ptr, unsigned long size) {
+  if (ptr) {
+    void *result = simple_malloc(size);
+    if (result)
+      str_memcpy(result, ptr, size);
+    return result;
+  }
+  return NULL;
+}
+
 void *simple_malloc(unsigned long size) {
   if (!is_init)
     init_memory_manager();

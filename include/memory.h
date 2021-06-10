@@ -52,4 +52,17 @@ void simple_free(void *ptr);
  */
 void *simple_calloc(unsigned long num, unsigned long size);
 
+/**
+ * @ingroup memory management
+ *
+ * @brief Reallocates the given area of memory..
+ *
+ * @param num Number of objects.
+ * @param ptr Pointer to the memory area to be reallocated
+ * @param new_size New size of the array in bytes.
+ *
+ * @returns On success, returns the pointer to the beginning of newly allocated memory.
+ */
+void *simple_realoc(void *ptr, unsigned long size);
+
 #endif //IMPLEMENTING_LIBC_INCLUDE_MEMORY_H_
