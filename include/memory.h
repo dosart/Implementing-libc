@@ -1,6 +1,6 @@
 /*!
 @file
-@defgroup memory management
+@defgroup memory_management
 @brief  Header file for malloc
 This file contains functions implementation from libs (malloc.h)
 */
@@ -13,7 +13,9 @@ This file contains functions implementation from libs (malloc.h)
 #include <unistd.h>
 
 /*!
-	@brief Memory block characteristic
+ * @ingroup memory_management
+ *
+ * @brief Memory block characteristic
 */
 typedef struct memory_control_block {
   unsigned long size; ///< Memory block size
@@ -21,7 +23,7 @@ typedef struct memory_control_block {
 } mcb;
 
 /**
- * @ingroup memory management
+ * @ingroup memory_management
  *
  * @brief Allocates size bytes of uninitialized storage.
  *
@@ -41,7 +43,7 @@ void* simple_malloc(unsigned long size);
 void simple_free(void *ptr);
 
 /**
- * @ingroup memory management
+ * @ingroup memory_management
  *
  * @brief Allocates memory for an array of num objects of size size and initializes it to all bits zero.
  *
@@ -53,7 +55,7 @@ void simple_free(void *ptr);
 void *simple_calloc(unsigned long num, unsigned long size);
 
 /**
- * @ingroup memory management
+ * @ingroup memory_management
  *
  * @brief Reallocates the given area of memory..
  *
