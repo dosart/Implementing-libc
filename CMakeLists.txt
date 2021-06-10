@@ -37,12 +37,12 @@ add_compile_options(
 
 include_directories(include tests)
 set(SOURCES
-    src/main.c
-    src/string.c
-    tests/tests.c src/malloc.c)
+        src/main.c
+        src/string.c
+        tests/tests.c src/memory.c)
 set(HEADERS
-    include/string.h
-    tests/tests.h include/malloc.h)
+        include/string.h
+        tests/tests.h include/memory.h)
 add_executable(implementing_libc ${SOURCES} ${HEADERS})
 
 include (CTest)

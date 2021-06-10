@@ -1,4 +1,4 @@
-#include "malloc.h"
+#include "memory.h"
 
 /*
  * ===================================================================
@@ -11,10 +11,14 @@ static short is_init = 0; ///< 1 if memory manager init else 0
 static void *first = NULL; ///< first free byte of memory
 static void *last = NULL; ///< last free byte of memory
 
-static void init_memory_manager() {
-  is_init = 1;
-  last = sbrk(0);
-  first = last;
+static void init_memory_manager();
+
+void *simple_calloc(unsigned long num, unsigned long size) {
+  unsigned long total = num*size;
+  void *result = simple_malloc(total);
+  if (result)
+    str_memset(result, '\0', total);
+  return result;
 }
 
 void *simple_malloc(unsigned long size) {
@@ -56,6 +60,12 @@ void *simple_malloc(unsigned long size) {
     result_memory_block = (char *) result_memory_block + sizeof(mcb);
   }
   return result_memory_block;
+}
+
+static void init_memory_manager() {
+  is_init = 1;
+  last = sbrk(0);
+  first = last;
 }
 
 void simple_free(void *ptr) {
