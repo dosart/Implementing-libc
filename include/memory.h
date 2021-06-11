@@ -36,7 +36,7 @@ void* simple_malloc(unsigned long size);
 /**
  * @ingroup memory management
  *
- * @brief Deallocates the space previously allocated by malloc(), calloc().
+ * @brief Deallocates the space previously allocated by malloc(), calloc(), realoc().
  *
  * @param ptr Pointer to the memory to deallocate.
  */
@@ -57,7 +57,7 @@ void *simple_calloc(unsigned long num, unsigned long size);
 /**
  * @ingroup memory_management
  *
- * @brief Reallocates the given area of memory..
+ * @brief Reallocates the given area of memory.
  *
  * @param num Number of objects.
  * @param ptr Pointer to the memory area to be reallocated
