@@ -16,11 +16,12 @@ This file contains functions implementation from libs (malloc.h)
  * @ingroup memory_management
  *
  * @brief Memory block characteristic
-*/
-typedef struct memory_control_block {
+ */
+typedef struct __mcb_t_t
+{
   unsigned long size; ///< Memory block size
   short is_available; ///< 1 is free else 0
-} mcb;
+} mcb_t;
 
 /**
  * @ingroup memory_management
@@ -31,7 +32,7 @@ typedef struct memory_control_block {
  *
  * @returns On success, returns the pointer to the beginning of newly allocated memory.
  */
-void* simple_malloc(unsigned long size);
+void *simple_malloc(unsigned long size);
 
 /**
  * @ingroup memory management
@@ -67,4 +68,4 @@ void *simple_calloc(unsigned long num, unsigned long size);
  */
 void *simple_realoc(void *ptr, unsigned long size);
 
-#endif //IMPLEMENTING_LIBC_INCLUDE_MEMORY_H_
+#endif // IMPLEMENTING_LIBC_INCLUDE_MEMORY_H_
