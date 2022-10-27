@@ -1,6 +1,0 @@
-dist: bionic
-language: c
-script:
-  - mkdir build
-  - cd build
-  - cmake ..
