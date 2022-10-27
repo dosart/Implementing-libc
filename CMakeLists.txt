@@ -4,8 +4,10 @@
 ##
 ###################################################################################################
 
-cmake_minimum_required(VERSION 3.8)
-project(implementing_libc VERSION 0.1 LANGUAGES C)
+cmake_minimum_required(VERSION 3.16)
+
+set(PROJECT_NAME libc)
+project(${PROJECT_NAME} VERSION 0.0.1 LANGUAGES C)
 
 ###################################################################################################
 ##
@@ -39,11 +41,12 @@ include_directories(include tests)
 set(SOURCES
         src/main.c
         src/string.c
-        tests/tests.c src/memory.c)
+        tests/tests.c src/memory.c src/garbage_collector.c)
 set(HEADERS
         include/string.h
-        tests/tests.h include/memory.h)
-add_executable(implementing_libc ${SOURCES} ${HEADERS})
+        tests/tests.h include/memory.h include/garbage_collector.h)
+        
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 include (CTest)
-add_test(valgrind_test implementing_libc)
+add_test(valgrind_test ${PROJECT_NAME})
