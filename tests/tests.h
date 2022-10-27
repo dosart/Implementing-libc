@@ -8,6 +8,7 @@
 #include "string.h"
 #include "memory.h"
 #include "malloc.h"
+#include "garbage_collector.h"
 
 #include <assert.h>
 #include <stdio.h>
@@ -51,4 +52,6 @@ void test_str_cspn2();
 void test_free();
 void test_malloc();
 
-#endif //IMPLEMENTING_LIBC_TESTS_TESTS_H_
+void test_garbage_collector1();
+
+#endif // IMPLEMENTING_LIBC_TESTS_TESTS_H_

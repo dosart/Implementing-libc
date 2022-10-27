@@ -19,8 +19,9 @@ This file contains functions implementation from libs (malloc.h)
  */
 typedef struct __mcb_t_t
 {
-  unsigned long size; ///< Memory block size
-  short is_available; ///< 1 is free else 0
+  unsigned long size;         ///< Memory block size
+  unsigned char is_available; ///< 1 is free else 0
+  unsigned char marked;
 } mcb_t;
 
 /**
@@ -67,5 +68,23 @@ void *simple_calloc(unsigned long num, unsigned long size);
  * @returns On success, returns the pointer to the beginning of newly allocated memory.
  */
 void *simple_realoc(void *ptr, unsigned long size);
+
+/**
+ * @ingroup memory_management
+ *
+ * @brief Get a pointer to the first byte of the heap.
+ *
+ * @returns pointer to the first byte of the heap.
+ */
+void *get_first_bite();
+
+/**
+ * @ingroup memory_management
+ *
+ * @brief Get a pointer to the last byte of the heap.
+ *
+ * @returns pointer to the last byte of the heap.
+ */
+void *get_last_bite();
 
 #endif // IMPLEMENTING_LIBC_INCLUDE_MEMORY_H_

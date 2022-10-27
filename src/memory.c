@@ -57,6 +57,7 @@ void *simple_malloc(unsigned long size)
         if (current_mcb->size >= size)
         {
           current_mcb->is_available = 0;
+          current_mcb->marked = 0;
           result_memory_block = current_memory_block;
           break;
         }
@@ -75,6 +76,7 @@ void *simple_malloc(unsigned long size)
 
       current_mcb = result_memory_block;
       current_mcb->is_available = 0;
+      current_mcb->marked = 0;
       current_mcb->size = size;
 
       result_memory_block = (char *)result_memory_block + sizeof(mcb_t);
@@ -95,4 +97,15 @@ void simple_free(void *ptr)
 {
   mcb_t *current_mcb = (void *)((char *)ptr - sizeof(mcb_t));
   current_mcb->is_available = 1;
+  current_mcb->marked = 0;
+}
+
+void *get_first_bite()
+{
+  return first;
+}
+
+void *get_last_bite()
+{
+  return last;
 }
