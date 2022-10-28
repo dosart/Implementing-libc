@@ -1,17 +1,21 @@
 #include "garbage_collector.h"
-#include <assert.h>
 
 vm_t *make_vm()
 {
     vm_t *vm = (vm_t *)simple_malloc(sizeof(vm_t));
     if (vm == NULL)
         return NULL;
+
+    vm->stack_size = 0;
     gc_push(vm, (void *)vm);
     return vm;
 }
 
 void gc_push_int(vm_t *vm, int value)
 {
+    if (vm == NULL)
+        return;
+
     int *ptr = (int *)simple_malloc(sizeof(int));
     *ptr = value;
     gc_push_object(vm, (void *)ptr);
@@ -19,13 +23,22 @@ void gc_push_int(vm_t *vm, int value)
 
 void gc_push_object(vm_t *vm, void *object)
 {
+    if (vm == NULL)
+        return;
+
     mcb_t *current_mcb = (mcb_t *)((char *)object - sizeof(mcb_t));
+    if (current_mcb == NULL)
+        return;
+
     current_mcb->marked = 0;
     gc_push(vm, current_mcb);
 }
 
 void gc_push(vm_t *vm, mcb_t *mcb)
 {
+    if (vm == NULL)
+        return;
+
     assert(vm->stack_size < STACK_MAX);
     vm->stack[vm->stack_size++] = mcb;
 }
