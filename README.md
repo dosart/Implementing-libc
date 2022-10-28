@@ -12,6 +12,10 @@ This is a simple libc implementation for educational purposes.
 - [x] void *realoc(unsigned long) - reallocates the given area of memory
 - [x] void free(void* ptr) - deallocates the space previously allocated by malloc(), calloc(), realoc()
 
+## tiny garbage collector
+
+Implementation of Mark&Sweep algorithm for memory manager
+
 ## string.h
 
 - [x] void *memcpy(void *dest, const void *src, size_t n) - copies bytes between buffers. From src to dest
