@@ -29,33 +29,86 @@ Garbage collector based on mark and sweep algorithm(https://wiki.c2.com/?MarkAnd
  */
 typedef struct __vm_t
 {
-    mcb_t *stack[STACK_MAX];
+    mcb_t *stack[STACK_MAX]; ///< Stack for root nodes
     size_t stack_size;
 
 } vm_t;
 
+/**
+ * @ingroup memory_management
+ *
+ * @brief Create a new VM and push the pointer to its own stack.
+ *
+ * @returns Pointer to virtual machine
+ */
 vm_t *make_vm();
 
 /**
  * @ingroup memory_management
  *
- * @brief Add value to stack of garbage collector.
+ * @brief Add mcb(memory control block) to stack.
  *
- * @param gc Garbage collector.
- * @param value Value to add.
+ * @param vm Virtual machine of garbage collector.
+ * @param mcb Mcb to add. Must be received after calling the simple_malloc function(memory.h).
  */
 void gc_push(vm_t *vm, mcb_t *mcb);
 
+/**
+ * @ingroup memory_management
+ *
+ * @brief Add object to stack.
+ *
+ * @param vm Virtual machine of garbage collector.
+ * @param object to add. Must be received after calling the simple_malloc function(memory.h).
+ */
 void gc_push_object(vm_t *vm, void *object);
 
+/**
+ * @ingroup memory_management
+ *
+ * @brief Allocate new memory of size sizeof(int) and add int to stack.
+ *
+ * @param vm Virtual machine of garbage collector.
+ * @param int to add.
+ */
 void gc_push_int(vm_t *vm, int value);
 
+/**
+ * @ingroup memory_management
+ *
+ * @brief Extract value from the stack of virtual machine.
+ *
+ * @param vm Virtual machine of garbage collector.
+ *
+ * @returns Pointer to extracted objecte.
+ */
 mcb_t *gc_pop(vm_t *vm);
 
+/**
+ * @ingroup memory_management
+ *
+ * @brief Marking stage. Mark all objects in scope(in stack)
+ *
+ * @param vm Virtual machine of garbage collector(contains stack).
+ */
+void gc_mark_all(vm_t *vm);
+
+/**
+ * @ingroup memory_management
+ *
+ * @brief Marking stage. Mark objects in scope(in stack)
+ *
+ * @param mcb mcb to mark.
+ */
 void gc_mark(mcb_t *mcb);
 
+/**
+ * @ingroup memory_management
+ *
+ * @brief Cleaning stage. Remove objects not in scope(not marked). Remove object in heap.
+ *
+ * @param mcb mcb to mark.
+ */
 void gc_sweep();
-
-void gc_mark_all(vm_t *vm);
 
 #endif
