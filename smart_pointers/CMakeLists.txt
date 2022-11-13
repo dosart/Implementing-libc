@@ -14,11 +14,28 @@ project(${PROJECT_NAME} VERSION 1.0.0
 
 ###################################################################################################
 ##
+##      Project options
+##
+###################################################################################################
+
+set(SOURCES
+        unique_ptr.hpp)
+
+add_library(${PROJECT_NAME} STATIC ${SOURCES})
+set_target_properties(
+        ${PROJECT_NAME} PROPERTIES
+        LINKER_LANGUAGE CXX
+        CXX_STANDARD 17
+        CXX_STANDARD_REQUIRED ON
+)
+
+###################################################################################################
+##
 ##      Compilation options
 ##
 ###################################################################################################
 
-add_compile_options(
+target_compile_options( ${PROJECT_NAME} PRIVATE
         -Werror
 
         -Wall
@@ -38,28 +55,34 @@ add_compile_options(
         -Wsign-conversion
         -Wsign-promo
 )
-
-###################################################################################################
-##
-##      Project options
-##
-###################################################################################################
-set(SOURCES
-        unique_ptr.hpp)
-
-add_library(${PROJECT_NAME} STATIC ${SOURCES})
-set_target_properties(
-        ${PROJECT_NAME} PROPERTIES
-        LINKER_LANGUAGE CXX
-        CXX_STANDARD 17
-        CXX_STANDARD_REQUIRED ON
-)
        
-add_executable(tests main.cpp)
-set_target_properties(
-        tests PROPERTIES
-        LINKER_LANGUAGE CXX
-        CXX_STANDARD 17
-        CXX_STANDARD_REQUIRED ON
+
+###################################################################################################
+##
+##     GoogleTest options
+##
+###################################################################################################
+
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
 )
-target_link_libraries(tests ${PROJECT_NAME})
+
+FetchContent_MakeAvailable(googletest)
+
+set(TEST test)
+
+add_executable(
+  ${TEST}
+  main.cpp
+)
+
+target_link_libraries(
+  ${TEST}
+  ${PROJECT_NAME}
+  GTest::gtest_main
+)
+
+include(GoogleTest)
+gtest_discover_tests(${TEST})

@@ -1,12 +1,12 @@
 #include "unique_ptr.hpp"
 
-void run_all_tests();
+#include <gtest/gtest.h>
 
-int main()
+// Demonstrate some basic assertions.
+TEST(HelloTest, BasicAssertions)
 {
-    run_all_tests();
-}
-
-void run_all_tests()
-{
+    // Expect two strings not to be equal.
+    EXPECT_STRNE("hello", "world");
+    // Expect equality.
+    EXPECT_EQ(7 * 6, 42);
 }
