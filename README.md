@@ -12,9 +12,23 @@ This is a simple libc implementation for educational purposes.
 - [x] void *realoc(unsigned long) - reallocates the given area of memory
 - [x] void free(void* ptr) - deallocates the space previously allocated by malloc(), calloc(), realoc()
 
+
 ## tiny garbage collector
 
 Implementation of Mark&Sweep algorithm for memory manager
+
+## simple smart pointers (I know it's not libc. Decided to practice memory management)
+
+### unique_ptr:
+
+- [x] unique_ptr() - creates a unique_ptr that owns nothing
+- [x] unique_ptr( std::nullptr_t ) - creates a unique_ptr that owns nothing
+- [x] unique_ptr( pointer p ) - creates a unique_ptr that owns pointer
+- [x] operator* -  dereferences pointer to the managed object
+- [x] operator-> - dereferences pointer to the managed object
+- [x] operator bool - checks if there is an associated managed object
+- [x] get() - returns a pointer to the managed object
+- [x] release() - returns a pointer to the managed object and releases the ownership
 
 ## string.h
 
